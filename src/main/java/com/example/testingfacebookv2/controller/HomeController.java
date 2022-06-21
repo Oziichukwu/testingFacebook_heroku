@@ -34,7 +34,7 @@ public class HomeController {
         return post;
     }
 
-    @RequestMapping(value = "/postAgain")
+    @RequestMapping(value = "/postAgain", method = RequestMethod.POST)
     public String sendPostAgain(String message){
 
         String post = facebook.feedOperations().updateStatus(message);

@@ -28,17 +28,17 @@ public class HomeController {
     }
 
     @RequestMapping(value= "/postMessage", method = RequestMethod.POST)
-    public String sendPost(String message){
+    public void sendPost(){
+        String message = "This is me";
+        facebook.feedOperations().post("This is me", message);
 
-        String post = facebook.feedOperations().post("This is me", message);
-        return post;
     }
 
+
     @RequestMapping(value = "/postAgain", method = RequestMethod.POST)
-    public String sendPostAgain(String message){
+    public void sendPostAgain(){
+        String message = "This is me";
+        facebook.feedOperations().updateStatus(message);
 
-        String post = facebook.feedOperations().updateStatus(message);
-
-        return post;
     }
 }

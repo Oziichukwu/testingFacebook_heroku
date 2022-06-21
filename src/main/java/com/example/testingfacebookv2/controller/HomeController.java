@@ -26,4 +26,19 @@ public class HomeController {
         model.addAttribute("friends", friends);
         return "home";
     }
+
+    @RequestMapping(value= "/postMessage", method = RequestMethod.POST)
+    public String sendPost(String message){
+
+        String post = facebook.feedOperations().post("This is me", message);
+        return post;
+    }
+
+    @RequestMapping(value = "/postAgain")
+    public String sendPostAgain(String message){
+
+        String post = facebook.feedOperations().updateStatus(message);
+
+        return post;
+    }
 }
